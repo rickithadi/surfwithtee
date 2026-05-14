@@ -42,6 +42,48 @@ function FadeSection({
   );
 }
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SportsActivityLocation",
+  name: "Surf With Tee",
+  description:
+    "Private and group surf lessons in Uluwatu, Bali with local instructor Tee. Beginner to advanced, max 2 students per coach, video analysis included.",
+  url: "https://surfwithtee.vercel.app",
+  telephone: "+6281234567890",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Jl. Pantai Balangan 315",
+    addressLocality: "Jimbaran",
+    addressRegion: "Bali",
+    postalCode: "80361",
+    addressCountry: "ID",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: -8.8142,
+    longitude: 115.1122,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday", "Tuesday", "Wednesday", "Thursday",
+        "Friday", "Saturday", "Sunday",
+      ],
+      opens: "07:00",
+      closes: "18:00",
+    },
+  ],
+  sameAs: ["https://www.instagram.com/surfwithtee"],
+  priceRange: "$$",
+  image: "https://surfwithtee.vercel.app/images/tee-instructor.jpg",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5",
+    reviewCount: "500",
+  },
+};
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -61,6 +103,10 @@ export default function Home() {
 
   return (
     <main className="bg-[#FAFAF5] text-[#1C2B2B]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* ─── NAV ─────────────────────────────────────────────── */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -270,10 +316,10 @@ export default function Home() {
       {/* ─── FULL-WIDTH SPLIT IMAGE ───────────────────────────── */}
       <div className="relative h-[50vh] overflow-hidden">
         <Image
-          src="/images/group-lesson.jpg"
-          alt="Group surf lesson in Bali"
+          src="/images/lesson-briefing-1.jpg"
+          alt="Group surf lesson briefing on the beach"
           fill
-          className="object-cover object-[center_60%]"
+          className="object-cover object-[center_40%]"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-[#1C2B2B]/40 flex items-center justify-center">
@@ -282,6 +328,29 @@ export default function Home() {
           </p>
         </div>
       </div>
+
+      {/* ─── VIDEO SECTION ───────────────────────────────────── */}
+      <section className="bg-[#1C2B2B] py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <FadeSection className="text-center mb-10">
+            <p className="text-xs uppercase tracking-[0.25em] text-[#7ECECE] font-medium mb-3">See It In Action</p>
+            <h2 className="font-display text-5xl font-light text-white">Watch a Session</h2>
+            <p className="mt-4 text-[#9BBEBE] max-w-md mx-auto text-sm leading-relaxed">
+              Real lessons, real people, real waves — straight from the beach at Balangan.
+            </p>
+          </FadeSection>
+          <FadeSection className="rounded-2xl overflow-hidden shadow-2xl">
+            <video
+              src="/images/lesson-video.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full max-h-[70vh] object-cover"
+            />
+          </FadeSection>
+        </div>
+      </section>
 
       {/* ─── LESSONS ─────────────────────────────────────────── */}
       <section id="lessons" className="py-24 md:py-36 px-6 max-w-7xl mx-auto">
@@ -447,9 +516,9 @@ export default function Home() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
           {[
             { src: "/images/hero-surf.jpg", pos: "object-center", tall: true },
-            { src: "/images/surf-action-4.jpg", pos: "object-[center_30%]", tall: false },
+            { src: "/images/lesson-briefing-1.jpg", pos: "object-[center_30%]", tall: false },
             { src: "/images/surf-action-1.jpg", pos: "object-center", tall: false },
-            { src: "/images/beach-board.jpg", pos: "object-[center_40%]", tall: false },
+            { src: "/images/lesson-briefing-2.jpg", pos: "object-[center_35%]", tall: false },
             { src: "/images/surf-action-2.jpg", pos: "object-center", tall: false },
             { src: "/images/surf-action-3.jpg", pos: "object-center", tall: true },
             { src: "/images/surf-action-5.jpg", pos: "object-center", tall: false },
@@ -594,15 +663,23 @@ export default function Home() {
               Drop me a message on WhatsApp or fill out the form and I'll get back to you within a few hours. Let's find the perfect session for you.
             </p>
 
-            <div className="flex items-start gap-3 mb-8 p-4 bg-[#F4E2C0]/60 rounded-xl border border-[#D4B896]/40">
+            <a
+              href="https://maps.app.goo.gl/L2vwUwsubBKG5FWZA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-3 mb-8 p-4 bg-[#F4E2C0]/60 rounded-xl border border-[#D4B896]/40 hover:bg-[#F4E2C0]/90 transition-colors group"
+            >
               <svg className="w-4 h-4 text-[#0A7075] shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/>
               </svg>
-              <div>
+              <div className="flex-1">
                 <p className="text-xs font-semibold text-[#1C2B2B] mb-0.5">Find us at</p>
                 <p className="text-xs text-[#2E4444]">Jl. Pantai Balangan 315, Jimbaran<br />Kuta Selatan, Badung — Bali 80361</p>
               </div>
-            </div>
+              <svg className="w-3.5 h-3.5 text-[#0A7075] shrink-0 mt-0.5 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+              </svg>
+            </a>
 
             <div className="space-y-5">
               <a
@@ -663,6 +740,30 @@ export default function Home() {
               <p className="text-xs text-[#2E4444]/70 mt-3 leading-relaxed">
                 Full payment required at time of booking. Sessions may be rescheduled due to poor weather — we'll always offer a suitable alternative.
               </p>
+            </div>
+
+            <div className="mt-8 rounded-2xl overflow-hidden border border-[#E0E0D8] shadow-sm">
+              <iframe
+                src="https://maps.google.com/maps?q=Jl.+Pantai+Balangan+315,+Jimbaran,+Bali+80361&output=embed"
+                width="100%"
+                height="240"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Surf With Tee location on Google Maps"
+              />
+              <a
+                href="https://maps.app.goo.gl/L2vwUwsubBKG5FWZA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 py-3 bg-[#0A7075] text-white text-xs font-medium tracking-wide hover:bg-[#065052] transition-colors"
+              >
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                </svg>
+                Open in Google Maps
+              </a>
             </div>
           </FadeSection>
 

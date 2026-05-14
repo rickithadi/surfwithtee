@@ -1299,5 +1299,54 @@
     },
     "tool_use_id": "toolu_018Qckh5SHhCoMD4JGFPkqtq",
     "duration_ms": 45
+  },
+  {
+    "session_id": "45d49b43-bf91-4684-b6dc-7acd84109c2b",
+    "transcript_path": "/Users/hadi.rickit/.claude/projects/-Users-hadi-rickit-dev-surfwithtee/45d49b43-bf91-4684-b6dc-7acd84109c2b.jsonl",
+    "cwd": "/Users/hadi.rickit/dev/surfwithtee",
+    "permission_mode": "bypassPermissions",
+    "effort": {
+      "level": "high"
+    },
+    "hook_event_name": "PostToolUse",
+    "tool_name": "Bash",
+    "tool_input": {
+      "command": "vercel 2>&1",
+      "timeout": 180000,
+      "description": "Run Vercel preview deployment"
+    },
+    "tool_response": {
+      "stdout": "Vercel CLI 48.0.2\nRetrieving project\u2026\nDeploying hadi-rickits-projects/surfwithtee\nUploading [--------------------] (0.0B/79.3MB)\nUploading [=====---------------] (19.8MB/79.3MB)\nUploading [==========----------] (39.7MB/79.3MB)\nUploading [===============-----] (59.5MB/79.3MB)\nUploading [====================] (79.3MB/79.3MB)\nInspect: https://vercel.com/hadi-rickits-projects/surfwithtee/4af222D9HQ6UCP4J6GrzAzjtGQck [1m]\nProduction: https://surfwithtee-boli11y03-hadi-rickits-projects.vercel.app [1m]\nhttps://surfwithtee-boli11y03-hadi-rickits-projects.vercel.appBuilding\nBuilding\nCompleting\nDeployed to production. Run `vercel --prod` to overwrite later (https://vercel.link/2F).\nTo change the domain or build command, go to https://vercel.com/hadi-rickits-projects/surfwithtee/settings\n\nCommon next commands:\n- `vercel inspect surfwithtee-boli11y03-hadi-rickits-projects.vercel.app --logs`\n- `vercel redeploy surfwithtee-boli11y03-hadi-rickits-projects.vercel.app`",
+      "stderr": "",
+      "interrupted": false,
+      "isImage": false,
+      "noOutputExpected": false
+    },
+    "tool_use_id": "toolu_01BsDF9782sYAfkt7EijRDf7",
+    "duration_ms": 165377
+  },
+  {
+    "session_id": "45d49b43-bf91-4684-b6dc-7acd84109c2b",
+    "transcript_path": "/Users/hadi.rickit/.claude/projects/-Users-hadi-rickit-dev-surfwithtee/45d49b43-bf91-4684-b6dc-7acd84109c2b.jsonl",
+    "cwd": "/Users/hadi.rickit/dev/surfwithtee",
+    "permission_mode": "bypassPermissions",
+    "effort": {
+      "level": "high"
+    },
+    "hook_event_name": "PostToolUse",
+    "tool_name": "Bash",
+    "tool_input": {
+      "command": "git rev-parse --short HEAD && vercel inspect surfwithtee-boli11y03-hadi-rickits-projects.vercel.app 2>&1 | head -40",
+      "description": "Get commit SHA and inspect deployment"
+    },
+    "tool_response": {
+      "stdout": "f10d756\nVercel CLI 48.0.2\nFetching deployment \"surfwithtee-boli11y03-hadi-rickits-projects.vercel.app\" in hadi-rickits-projects\n> Fetched deployment \"surfwithtee-boli11y03-hadi-rickits-projects.vercel.app\" in hadi-rickits-projects [480ms]\n\n  General\n\n    id\t\tdpl_4af222D9HQ6UCP4J6GrzAzjtGQck\n    name\tsurfwithtee\n    target\tproduction\n    status\t\u25cf Ready\n    url\t\thttps://surfwithtee-boli11y03-hadi-rickits-projects.vercel.app\n    created\tThu May 14 2026 14:42:48 GMT+1000 (Australian Eastern Standard Time) [2m ago]\n\n\n  Aliases\n\n    \u2576 https://surfwithtee.vercel.app\n    \u2576 https://surfwithtee-hadi-rickits-projects.vercel.app\n    \u2576 https://surfwithtee-rickithadi-hadi-rickits-projects.vercel.app\n    \n\n  Builds\n\n    \u250c .        [0ms]\n    \u251c\u2500\u2500 \u03bb _global-error (551.22KB) [iad1]\n    \u251c\u2500\u2500 \u03bb _global-error.rsc (551.22KB) [iad1]\n    \u251c\u2500\u2500 \u03bb _global-error.segments/__PAGE__.segment.rsc (551.22KB) [iad1]\n    \u251c\u2500\u2500 \u03bb _global-error.segments/_full.segment.rsc (551.22KB) [iad1]\n    \u251c\u2500\u2500 \u03bb _global-error.segments/_head.segment.rsc (551.22KB) [iad1]\n    \u2514\u2500\u2500 13 output items hidden",
+      "stderr": "",
+      "interrupted": false,
+      "isImage": false,
+      "noOutputExpected": false
+    },
+    "tool_use_id": "toolu_014RhMUNoCk9ubhtcJS8BXrc",
+    "duration_ms": 2161
   }
 ]
