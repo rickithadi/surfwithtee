@@ -6,5 +6,13 @@
     "permission_mode": "bypassPermissions",
     "hook_event_name": "UserPromptSubmit",
     "prompt": "pull pricing and stuff from the pdf"
+  },
+  {
+    "session_id": "45d49b43-bf91-4684-b6dc-7acd84109c2b",
+    "transcript_path": "/Users/hadi.rickit/.claude/projects/-Users-hadi-rickit-dev-surfwithtee/45d49b43-bf91-4684-b6dc-7acd84109c2b.jsonl",
+    "cwd": "/Users/hadi.rickit/dev/surfwithtee",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "deploy on vercel"
   }
 ]
