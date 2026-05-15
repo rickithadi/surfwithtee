@@ -49,7 +49,7 @@ const jsonLd = {
   description:
     "Private and group surf lessons in Uluwatu, Bali with local instructor Tee. Beginner to advanced, max 2 students per coach, video analysis included.",
   url: "https://surfwithtee.vercel.app",
-  telephone: "+6281234567890",
+  telephone: "+6281353282623",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Jl. Pantai Balangan 315",
@@ -74,7 +74,7 @@ const jsonLd = {
       closes: "18:00",
     },
   ],
-  sameAs: ["https://www.instagram.com/surfwithtee"],
+  sameAs: ["https://www.instagram.com/surf_with_t"],
   priceRange: "$$",
   image: "https://surfwithtee.vercel.app/images/tee-instructor.jpg",
   aggregateRating: {
@@ -212,7 +212,7 @@ export default function Home() {
             <span className="italic font-medium">of Bali</span>
           </h1>
           <p className="text-lg md:text-xl opacity-85 max-w-md mx-auto mb-10 leading-relaxed font-light">
-            Private and group surf lessons at one of the world's top surf spots. All equipment provided. Max 2 students per coach.
+            Improve your surfing at one of the world's best breaks. Expert local coaches, max 2 students per coach, all equipment included.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -244,13 +244,15 @@ export default function Home() {
         <div className="flex gap-12 animate-[marquee_20s_linear_infinite] whitespace-nowrap">
           {Array(4).fill(null).map((_, i) => (
             <span key={i} className="text-sm tracking-[0.2em] uppercase opacity-90 flex items-center gap-12">
-              Bali's Warmest Surf School
+              Surf With Tee · Uluwatu
               <span className="opacity-40">✦</span>
-              Beginner Friendly
+              Improve Your Skills
               <span className="opacity-40">✦</span>
               Local Instructor
               <span className="opacity-40">✦</span>
-              Unforgettable Experience
+              All-Inclusive Sessions
+              <span className="opacity-40">✦</span>
+              Beginner to Advanced
               <span className="opacity-40">✦</span>
             </span>
           ))}
@@ -322,9 +324,12 @@ export default function Home() {
           className="object-cover object-[center_40%]"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[#1C2B2B]/40 flex items-center justify-center">
-          <p className="font-display text-4xl md:text-6xl text-white font-light italic text-center px-4">
-            "Every wave is a new beginning."
+        <div className="absolute inset-0 bg-[#1C2B2B]/50 flex flex-col items-center justify-center gap-4 px-6 text-center">
+          <p className="font-display text-4xl md:text-6xl text-white font-light italic">
+            "Improve your skills with us."
+          </p>
+          <p className="text-white/70 text-sm md:text-base max-w-xl leading-relaxed font-light">
+            We make sure you don't leave without learning a little more about Uluwatu — stunning beaches, mild waves, beautiful culture, and endless tropical adventures.
           </p>
         </div>
       </div>
@@ -474,31 +479,41 @@ export default function Home() {
             <p className="text-xs uppercase tracking-[0.25em] text-[#7ECECE] font-medium mb-3">Why Choose Us</p>
             <h2 className="font-display text-5xl font-light">The Surf With Tee Difference</h2>
           </FadeSection>
-          <div className="grid md:grid-cols-3 gap-10 lg:gap-16">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
             {[
               {
+                num: "01",
+                icon: "🏄",
+                title: "Perfect for Any Level",
+                body: "Whether it's your first time on a surfboard or you're looking to improve, our certified coaches are here to guide you with daily sessions tailored to your skill level.",
+              },
+              {
+                num: "02",
+                icon: "🤙",
+                title: "Small Groups Only",
+                body: "With a maximum of 2 surfers per coach, you'll receive focused, personal coaching that ensures significant and real progress every single session.",
+              },
+              {
+                num: "03",
                 icon: "🎥",
                 title: "Video Analysis",
-                body: "We film your sessions from both water and air perspectives so you can see exactly what to improve. Real feedback, not just feelings.",
+                body: "For surfers aiming to elevate their abilities, we offer detailed video analysis from both water and air perspectives, line-up coaching, and surf-specific fitness training.",
               },
               {
-                icon: "🤙",
-                title: "Max 2 Per Coach",
-                body: "No crowded lineups, no waiting around. With a maximum of 2 surfers per coach, you get focused, meaningful progression every single session.",
-              },
-              {
+                num: "04",
                 icon: "🌊",
-                title: "Best Spots in Uluwatu",
-                body: "We take you to the right break for your level — whether it's your first pop-up or you're chasing unbroken waves at Balangan.",
+                title: "All-Inclusive",
+                body: "Zinc, surfboard, rash guard, locker and transport to the best surf spots is included. Get ready to ride the waves and make unforgettable memories.",
               },
             ].map((item, i) => (
               <FadeSection
                 key={item.title}
                 className="text-center"
-                style={{ transitionDelay: `${i * 0.12}s` }}
+                style={{ transitionDelay: `${i * 0.1}s` }}
               >
-                <div className="text-4xl mb-5">{item.icon}</div>
-                <h3 className="font-display text-2xl font-medium mb-3">{item.title}</h3>
+                <p className="font-display text-4xl font-light text-[#7ECECE]/40 mb-3">{item.num}</p>
+                <div className="text-3xl mb-4">{item.icon}</div>
+                <h3 className="font-display text-xl font-medium mb-3">{item.title}</h3>
                 <p className="text-[#9BBEBE] leading-relaxed text-sm">{item.body}</p>
               </FadeSection>
             ))}
@@ -549,8 +564,8 @@ export default function Home() {
           <FadeSection className="text-center mb-14">
             <p className="text-xs uppercase tracking-[0.25em] text-[#0A7075] font-medium mb-3">How We Coach</p>
             <h2 className="font-display text-5xl font-light text-[#1C2B2B]">Your Progression Path</h2>
-            <p className="mt-4 text-[#2E4444] max-w-xl mx-auto text-sm leading-relaxed">
-              It's normal to feel "in between" levels — every surfer progresses at their own pace. These levels help us tailor your coaching and track your real improvement.
+            <p className="mt-4 text-[#2E4444] max-w-2xl mx-auto text-sm leading-relaxed">
+              It's normal to feel like you're "in between" levels — every surfer progresses at their own pace. These levels help determine how our coaching will guide you through your needs and support you with the technical improvements we'll focus on during your stay. With our comprehensive video analysis from both water and air perspectives, you'll have every angle covered. Whether you're a beginner, intermediate, or advanced surfer, our expert coaches are here to help you elevate your skills and fun.
             </p>
           </FadeSection>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -683,7 +698,7 @@ export default function Home() {
 
             <div className="space-y-5">
               <a
-                href="https://wa.me/6281234567890?text=Hi%20Tee!%20I'd%20love%20to%20book%20a%20surf%20lesson."
+                href="https://wa.me/6281353282623?text=Hi%20Tee!%20I'd%20love%20to%20book%20a%20surf%20lesson."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 bg-[#25D366]/10 border border-[#25D366]/30 rounded-xl hover:bg-[#25D366]/20 transition-colors group"
@@ -703,7 +718,7 @@ export default function Home() {
               </a>
 
               <a
-                href="https://www.instagram.com/surfwithtee"
+                href="https://www.instagram.com/surf_with_t"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 bg-[#E040FB]/10 border border-[#E040FB]/20 rounded-xl hover:bg-[#E040FB]/15 transition-colors group"
@@ -714,7 +729,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-medium text-[#1C2B2B] text-sm">@surfwithtee</p>
+                  <p className="font-medium text-[#1C2B2B] text-sm">@surf_with_t</p>
                   <p className="text-xs text-[#2E4444]">See more sessions & vibes</p>
                 </div>
                 <svg className="ml-auto w-4 h-4 text-[#2E4444] group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
