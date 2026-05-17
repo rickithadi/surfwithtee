@@ -47,9 +47,10 @@ const jsonLd = {
   "@type": "SportsActivityLocation",
   name: "Surf With Tee",
   description:
-    "Private and group surf lessons in Uluwatu, Bali with local instructor Tee. Beginner to advanced, max 2 students per coach, video analysis included.",
+    "Private and group surf lessons in Uluwatu, Bali with local instructor Tee. Beginner to advanced, max 3 students per coach, video analysis included.",
   url: "https://surfwithtee.vercel.app",
   telephone: "+6281353282623",
+  email: "surfwitht@gmail.com",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Jl. Pantai Balangan 315",
@@ -87,11 +88,26 @@ const jsonLd = {
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { threshold: 0.15, rootMargin: "-10% 0px -60% 0px" }
+    );
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
   }, []);
 
   const navLinks = [
@@ -102,7 +118,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="bg-[#FAFAF5] text-[#1C2B2B]">
+    <main className="bg-[#FAFAF5] text-[#1C2B2B] overflow-x-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -115,14 +131,14 @@ export default function Home() {
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 h-16 flex items-center justify-between">
-          <a
-            href="#"
-            className={`font-display text-xl font-semibold tracking-wider transition-colors ${
-              scrolled ? "text-[#1C2B2B]" : "text-white"
-            }`}
-          >
-            SURF WITH TEE
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+          <a href="#" className="flex items-center">
+            <Image
+              src="/images/logo-sm.png"
+              alt="Surf With Tee"
+              width={80}
+              height={80}
+            />
           </a>
 
           {/* Desktop nav */}
@@ -133,7 +149,7 @@ export default function Home() {
                 href={l.href}
                 className={`nav-link transition-colors ${
                   scrolled ? "text-[#1C2B2B]" : "text-white"
-                }`}
+                } ${activeSection === l.href.slice(1) ? "opacity-100" : activeSection ? "opacity-55" : "opacity-100"}`}
               >
                 {l.label}
               </a>
@@ -181,13 +197,27 @@ export default function Home() {
                 {l.label}
               </a>
             ))}
-            <a
-              href="#contact"
-              onClick={() => setMenuOpen(false)}
-              className="mt-2 px-5 py-2.5 rounded-full text-sm font-medium tracking-wide bg-[#0A7075] text-white text-center"
-            >
-              Book Now
-            </a>
+            <div className="border-t border-[#E0E0D8] pt-4 flex flex-col gap-3">
+              <a
+                href="https://wa.me/6281353282623?text=Hi%20Tee!%20I'd%20love%20to%20book%20a%20surf%20lesson."
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium tracking-wide bg-[#25D366] text-white text-center"
+              >
+                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-white shrink-0">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                WhatsApp Tee
+              </a>
+              <a
+                href="#contact"
+                onClick={() => setMenuOpen(false)}
+                className="px-5 py-2.5 rounded-full text-sm font-medium tracking-wide bg-[#0A7075] text-white text-center"
+              >
+                Book Now
+              </a>
+            </div>
           </div>
         )}
       </nav>
@@ -231,7 +261,7 @@ export default function Home() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50 animate-bounce">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50 animate-[scroll-hint_2s_ease-in-out_infinite]">
           <span className="text-xs tracking-widest uppercase">Scroll</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path d="M12 5v14M5 12l7 7 7-7" />
@@ -245,15 +275,15 @@ export default function Home() {
           {Array(4).fill(null).map((_, i) => (
             <span key={i} className="text-sm tracking-[0.2em] uppercase opacity-90 flex items-center gap-12">
               Surf With Tee · Uluwatu
-              <span className="opacity-40">✦</span>
+              <span style={{ color: "#00AEEF" }}>✦</span>
               Improve Your Skills
-              <span className="opacity-40">✦</span>
+              <span style={{ color: "#F5821F" }}>✦</span>
               Local Instructor
-              <span className="opacity-40">✦</span>
+              <span style={{ color: "#00A650" }}>✦</span>
               All-Inclusive Sessions
-              <span className="opacity-40">✦</span>
+              <span style={{ color: "#EC008C" }}>✦</span>
               Beginner to Advanced
-              <span className="opacity-40">✦</span>
+              <span style={{ color: "#00AEEF" }}>✦</span>
             </span>
           ))}
         </div>
@@ -285,10 +315,10 @@ export default function Home() {
             </h2>
             <div className="w-12 h-0.5 bg-[#0A7075] mb-8" />
             <p className="text-base leading-relaxed text-[#2E4444] mb-5">
-              Born and raised in Bali, I've spent my whole life surfing the breaks of Uluwatu. I turned that passion into PT. Surf With Tee — a surf school built on good vibes, personal attention, and a genuine love for sharing the ocean with people from all over the world.
+              Born and raised in Bali, I've spent my whole life surfing the breaks of Uluwatu. I turned that passion into Surf With Tee — a surf school built on good vibes, personal attention, and a genuine love for sharing the ocean with people from all over the world.
             </p>
             <p className="text-base leading-relaxed text-[#2E4444] mb-8">
-              Whether it's your very first wave or you're looking to level up your technique, I tailor every session to you. Our instructors are nice, kind and always smiling — we'll always let you know upfront who your teacher will be, and we both can't wait to meet you in the water.
+              Whether it's your very first wave or you're looking to level up your technique, I tailor every session to you. Our instructors are warm, kind and always smiling — we'll always let you know upfront who your teacher will be, and can't wait to meet you in the water.
             </p>
             <div className="grid grid-cols-3 gap-4 mb-10">
               {[
@@ -367,54 +397,61 @@ export default function Home() {
           </p>
         </FadeSection>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-          {[
+        {/* Single Sessions */}
+        <FadeSection className="mb-6">
+          <p className="text-xs uppercase tracking-[0.25em] text-[#0A7075] font-medium">Single Sessions</p>
+        </FadeSection>
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-4">
+          {([
             {
-              title: "Beginner Lesson",
-              duration: "2 Hours",
-              price: "Contact for rates",
-              image: "/images/lesson-beach.jpg",
-              imgPos: "object-[center_30%]",
-              features: [
-                "Pickup from Uluwatu area (scooter/car) or meet at the beach",
-                "Land-based surf guidance & safety briefing",
-                "Warm-up exercises on land",
-                "Practice paddling & pop-up with close instructor guidance",
-                "Surfboard, leash, surf shirt & zinc sunscreen included",
-              ],
-              highlight: false,
-            },
-            {
-              title: "All-Inclusive Session",
-              duration: "Choose your slot",
-              price: "Contact for rates",
-              image: "/images/surf-action-4.jpg",
+              title: "Group Lesson",
+              ratio: "1 Instructor · 3 Students",
+              duration: "2 hours",
+              price: "IDR 400.000 / person",
+              image: "/images/group-lesson.jpg",
               imgPos: "object-center",
               features: [
-                "Max 2 surfers per coach — real personal attention",
-                "Transport to the best surf spots that day",
-                "Surfboard, rash guard, zinc & locker included",
-                "Suitable for beginner to advanced",
-                "Multiple time slots available",
+                "Fun group session with 1:3 instructor-to-student ratio",
+                "Surfboard, wetsuit, sunscreen & zinc included",
+                "Coffee, tea & water provided",
+                "Ask about adding video review to your session",
               ],
-              highlight: true,
+              highlight: false,
+              photoAddonPrice: null,
             },
             {
-              title: "Coaching Package",
-              duration: "Multi-session",
-              price: "Contact for rates",
+              title: "Semi-Private",
+              ratio: "1 Instructor · 2 Students",
+              duration: "2 hours",
+              price: "IDR 500.000 / person",
+              image: "/images/lesson-briefing-2.jpg",
+              imgPos: "object-[center_35%]",
+              features: [
+                "Ideal for friends or couples",
+                "Full surf gear included",
+                "Coffee, tea & water provided",
+                "Videographer available to capture your session",
+              ],
+              highlight: false,
+              photoAddonPrice: null,
+            },
+            {
+              title: "Private Lesson",
+              ratio: "1 Instructor · 1 Student",
+              duration: "2 hours",
+              price: "IDR 700.000 / person",
               image: "/images/instructor-student.jpg",
               imgPos: "object-[center_25%]",
               features: [
-                "Structured progression through levels 1 → 1.3",
-                "Video analysis from water & air perspectives",
-                "Surf-specific fitness coaching",
-                "Line-up tactics & wave reading",
-                "For intermediate to advanced surfers",
+                "Personalised 1-on-1 coaching",
+                "All equipment included",
+                "Coffee, tea & water provided",
+                "Capture your session with our videographer",
               ],
-              highlight: false,
+              highlight: true,
+              photoAddonPrice: "+ IDR 300.000",
             },
-          ].map((lesson, i) => (
+          ] as { title: string; ratio: string; duration: string; price: string; image: string; imgPos: string; features: string[]; highlight: boolean; photoAddonPrice: string | null }[]).map((lesson, i) => (
             <FadeSection
               key={lesson.title}
               className={`rounded-2xl overflow-hidden flex flex-col ${
@@ -425,7 +462,7 @@ export default function Home() {
               style={{ transitionDelay: `${i * 0.1}s` }}
             >
               {lesson.highlight && (
-                <div className="bg-[#0A7075] text-white text-center py-2 text-xs tracking-widest uppercase font-medium">
+                <div className="text-white text-center py-2 text-xs tracking-widest uppercase font-medium" style={{ background: "#F5821F" }}>
                   Most Popular
                 </div>
               )}
@@ -439,14 +476,15 @@ export default function Home() {
                 />
               </div>
               <div className="bg-white flex-1 p-7 flex flex-col">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="font-display text-2xl font-semibold">{lesson.title}</h3>
-                    <p className="text-sm text-[#0A7075] mt-0.5">{lesson.duration}</p>
-                  </div>
-                  <span className="font-display text-lg font-medium text-[#1C2B2B]">{lesson.price}</span>
+                <div className="mb-4">
+                  <h3 className="font-display text-2xl font-semibold">{lesson.title}</h3>
+                  <p className="text-xs text-[#0A7075] mt-0.5">{lesson.ratio}</p>
+                  <p className="text-xs text-[#2E4444] mt-0.5">{lesson.duration}</p>
+                  <p className="font-display text-xl font-bold text-[#1C2B2B] mt-2">
+                    {lesson.price}
+                  </p>
                 </div>
-                <ul className="space-y-2.5 flex-1 mb-6">
+                <ul className="space-y-2.5 flex-1 mb-5">
                   {lesson.features.map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#2E4444]">
                       <svg className="w-4 h-4 mt-0.5 text-[#0A7075] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -456,20 +494,156 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
+                {lesson.photoAddonPrice && (
+                  <div className="mb-5 rounded-xl border border-[#E0E0D8] bg-[#FAFAF5] px-4 py-3 flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-2.5">
+                      <svg className="w-4 h-4 text-[#F5821F] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                        <circle cx="12" cy="13" r="4" />
+                      </svg>
+                      <div>
+                        <p className="text-xs font-medium text-[#1C2B2B]">Photo &amp; Video Add-on</p>
+                        <p className="text-xs text-[#2E4444]">Added to your session price</p>
+                      </div>
+                    </div>
+                    <span className="font-display text-sm font-semibold text-[#F5821F] shrink-0">{lesson.photoAddonPrice}</span>
+                  </div>
+                )}
                 <a
                   href="#contact"
-                  className={`w-full py-3 rounded-full text-sm font-medium text-center tracking-wide transition-colors ${
+                  className={`w-full py-3 rounded-full text-sm font-medium text-center tracking-widest uppercase transition-colors ${
                     lesson.highlight
                       ? "bg-[#0A7075] text-white hover:bg-[#065052]"
                       : "border border-[#0A7075] text-[#0A7075] hover:bg-[#E0F4F4]"
                   }`}
                 >
-                  Book This
+                  Book Now
                 </a>
               </div>
             </FadeSection>
           ))}
         </div>
+
+        {/* Board Rental */}
+        <FadeSection className="mb-16">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 px-6 py-5 bg-white rounded-2xl shadow-sm border border-[#E0E0D8]">
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 rounded-xl bg-[#E0F4F4] flex items-center justify-center shrink-0">
+                <svg className="w-5 h-5 text-[#0A7075]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <path d="M6.5 19.5 C3 16 2 10 5 6 C8 2 14 1.5 18 4 C22 6.5 23 12 20 16 C17 20 10 22 6.5 19.5Z" />
+                  <path d="M6.5 19.5 L20 4" strokeLinecap="round" />
+                </svg>
+              </div>
+              <div>
+                <p className="font-display text-lg font-semibold text-[#1C2B2B]">Board Rental</p>
+                <p className="text-xs text-[#2E4444] mt-0.5">Ideal if you want to practise solo between sessions</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-6 sm:shrink-0">
+              <div className="text-right">
+                <p className="font-display text-lg font-bold text-[#1C2B2B]">IDR 100.000</p>
+                <p className="text-xs text-[#2E4444]">per board · per hour</p>
+              </div>
+              <a href="#contact" className="px-5 py-2 rounded-full text-xs font-medium tracking-widest uppercase border border-[#0A7075] text-[#0A7075] hover:bg-[#E0F4F4] transition-colors whitespace-nowrap">
+                Book Now
+              </a>
+            </div>
+          </div>
+        </FadeSection>
+
+        {/* 3-Day Surf Camps */}
+        <FadeSection className="mb-6 mt-4">
+          <p className="text-xs uppercase tracking-[0.25em] text-[#0A7075] font-medium">3-Day Surf Camps</p>
+        </FadeSection>
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          {([
+            {
+              title: "3-Day Private",
+              persons: "1 Person",
+              price: "IDR 1.900.000",
+              pricePhoto: "+ IDR 300.000",
+              features: [
+                "Expert coaching tailored to your skill level",
+                "Beginner to advanced — all levels welcome",
+                "Video review to track your progress",
+              ],
+            },
+            {
+              title: "3-Day Semi-Private",
+              persons: "2 Persons",
+              price: "IDR 2.800.000",
+              pricePhoto: "+ IDR 300.000",
+              features: [
+                "Perfect for friends or couples",
+                "Expert coaches tailor lessons for two",
+                "Video analysis included",
+              ],
+            },
+            {
+              title: "3-Day Group",
+              persons: "3 Persons",
+              price: "IDR 3.400.000",
+              pricePhoto: "+ IDR 300.000",
+              features: [
+                "Group energy — beginners to advanced welcome",
+                "Learn from each other with expert guidance",
+                "Video reviews to track group progress",
+              ],
+            },
+          ] as { title: string; persons: string; price: string; pricePhoto: string; features: string[] }[]).map((pkg, i) => (
+            <FadeSection
+              key={pkg.title}
+              className="rounded-2xl overflow-hidden flex flex-col shadow-md"
+              style={{ transitionDelay: `${i * 0.1}s` }}
+            >
+              <div className="bg-[#1C2B2B] px-7 py-5 overflow-hidden">
+                <div className="flex items-start justify-between gap-2">
+                  <div className="min-w-0">
+                    <p className="text-[10px] text-[#7ECECE] uppercase tracking-widest font-medium mb-1.5">3-Day Camp</p>
+                    <h3 className="font-display text-2xl font-semibold text-white">{pkg.title}</h3>
+                    <p className="text-xs text-[#9BBEBE] mt-1">{pkg.persons}</p>
+                  </div>
+                  <span className="font-display text-7xl font-light text-white/10 leading-none select-none -mt-2 shrink-0">{i + 1}</span>
+                </div>
+              </div>
+              <div className="bg-white flex-1 p-7 flex flex-col">
+                <p className="font-display text-xl font-bold text-[#1C2B2B] mb-4">{pkg.price}</p>
+                <ul className="space-y-2.5 flex-1 mb-5">
+                  {pkg.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2.5 text-sm text-[#2E4444]">
+                      <svg className="w-4 h-4 mt-0.5 text-[#0A7075] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <path d="M5 13l4 4L19 7" />
+                      </svg>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mb-5 rounded-xl border border-[#E0E0D8] bg-[#FAFAF5] px-4 py-3 flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2.5">
+                    <svg className="w-4 h-4 text-[#F5821F] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                      <circle cx="12" cy="13" r="4" />
+                    </svg>
+                    <div>
+                      <p className="text-xs font-medium text-[#1C2B2B]">Add-on: Photo &amp; Video</p>
+                      <p className="text-xs text-[#2E4444]">Professional surf footage</p>
+                    </div>
+                  </div>
+                  <span className="font-display text-sm font-semibold text-[#F5821F] shrink-0">{pkg.pricePhoto}</span>
+                </div>
+                <a
+                  href="#contact"
+                  className="w-full py-3 rounded-full text-sm font-medium text-center tracking-widest uppercase border border-[#0A7075] text-[#0A7075] hover:bg-[#E0F4F4] transition-colors"
+                >
+                  Book Now
+                </a>
+              </div>
+            </FadeSection>
+          ))}
+        </div>
+        <FadeSection className="mt-6">
+          <p className="text-xs text-[#2E4444]/60 text-center">Pickup and boat fees are not included — ask Tee for details when booking.</p>
+        </FadeSection>
       </section>
 
       {/* ─── WHY US ──────────────────────────────────────────── */}
@@ -479,41 +653,40 @@ export default function Home() {
             <p className="text-xs uppercase tracking-[0.25em] text-[#7ECECE] font-medium mb-3">Why Choose Us</p>
             <h2 className="font-display text-5xl font-light">The Surf With Tee Difference</h2>
           </FadeSection>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
             {[
               {
                 num: "01",
-                icon: "🏄",
+                color: "#00AEEF",
                 title: "Perfect for Any Level",
-                body: "Whether it's your first time on a surfboard or you're looking to improve, our certified coaches are here to guide you with daily sessions tailored to your skill level.",
+                body: "Whether it's your first time on a surfboard or you're looking to improve your surfing, our certified coaches are here to guide you. Enjoy daily surf sessions in the Indian Ocean, tailored to your skill level.",
               },
               {
                 num: "02",
-                icon: "🤙",
-                title: "Small Groups Only",
-                body: "With a maximum of 2 surfers per coach, you'll receive focused, personal coaching that ensures significant and real progress every single session.",
+                color: "#F5821F",
+                title: "Small Groups",
+                body: "With a maximum of 3 surfers per coach, you'll receive focused coaching that ensures significant progress every session.",
               },
               {
                 num: "03",
-                icon: "🎥",
-                title: "Video Analysis",
-                body: "For surfers aiming to elevate their abilities, we offer detailed video analysis from both water and air perspectives, line-up coaching, and surf-specific fitness training.",
+                color: "#00A650",
+                title: "Improve Your Surf",
+                body: "For surfers looking to elevate their abilities, we offer daily sessions with our expert local coach, supported by detailed video analysis and line-up coaching. Our surf-specific fitness training is designed to improve your strength and precision.",
               },
               {
                 num: "04",
-                icon: "🌊",
+                color: "#EC008C",
                 title: "All-Inclusive",
-                body: "Zinc, surfboard, rash guard, locker and transport to the best surf spots is included. Get ready to ride the waves and make unforgettable memories.",
+                body: "Zinc, surfboard, rashguard, locker and transport to the best surf spots included. Get ready to ride the waves and make unforgettable memories.",
               },
             ].map((item, i) => (
               <FadeSection
                 key={item.title}
-                className="text-center"
+                className="text-left"
                 style={{ transitionDelay: `${i * 0.1}s` }}
               >
-                <p className="font-display text-4xl font-light text-[#7ECECE]/40 mb-3">{item.num}</p>
-                <div className="text-3xl mb-4">{item.icon}</div>
-                <h3 className="font-display text-xl font-medium mb-3">{item.title}</h3>
+                <p className="font-display text-7xl font-light leading-none mb-5 select-none" style={{ color: item.color }}>{item.num}</p>
+                <h3 className="font-display text-xl font-semibold mb-3 text-white">{item.title}</h3>
                 <p className="text-[#9BBEBE] leading-relaxed text-sm">{item.body}</p>
               </FadeSection>
             ))}
@@ -525,30 +698,29 @@ export default function Home() {
       <section id="gallery" className="py-24 md:py-36 px-6 max-w-7xl mx-auto">
         <FadeSection className="text-center mb-14">
           <p className="text-xs uppercase tracking-[0.25em] text-[#0A7075] font-medium mb-3">Real Sessions</p>
-          <h2 className="font-display text-5xl md:text-6xl font-light">Life on the Water</h2>
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-light">Life on the Water</h2>
         </FadeSection>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
           {[
-            { src: "/images/hero-surf.jpg", pos: "object-center", tall: true },
-            { src: "/images/lesson-briefing-1.jpg", pos: "object-[center_30%]", tall: false },
-            { src: "/images/surf-action-1.jpg", pos: "object-center", tall: false },
-            { src: "/images/lesson-briefing-2.jpg", pos: "object-[center_35%]", tall: false },
-            { src: "/images/surf-action-2.jpg", pos: "object-center", tall: false },
-            { src: "/images/surf-action-3.jpg", pos: "object-center", tall: true },
-            { src: "/images/surf-action-5.jpg", pos: "object-center", tall: false },
-            { src: "/images/surf-action-6.jpg", pos: "object-center", tall: false },
+            { src: "/images/hero-surf.jpg", pos: "object-center", tall: true, alt: "Surfer riding a wave at Uluwatu, Bali" },
+            { src: "/images/lesson-briefing-1.jpg", pos: "object-[center_30%]", tall: false, alt: "Pre-session beach briefing with Tee" },
+            { src: "/images/surf-action-1.jpg", pos: "object-center", tall: false, alt: "Student catching their first wave" },
+            { src: "/images/lesson-briefing-2.jpg", pos: "object-[center_35%]", tall: false, alt: "Coach reviewing surf technique on the sand" },
+            { src: "/images/surf-action-2.jpg", pos: "object-center", tall: false, alt: "Beginner standing up on a wave at Balangan" },
+            { src: "/images/surf-action-3.jpg", pos: "object-center", tall: true, alt: "Surfer carving through a clean break at Uluwatu" },
+            { src: "/images/surf-action-5.jpg", pos: "object-center", tall: false, alt: "Group lesson in the water at Bali" },
+            { src: "/images/surf-action-6.jpg", pos: "object-center", tall: false, alt: "Aerial view of a surfer on a Bali wave" },
           ].map((img, i) => (
             <div
               key={i}
-              className={`gallery-item rounded-xl overflow-hidden relative ${
-                img.tall ? "row-span-2" : ""
+              className={`gallery-item rounded-xl overflow-hidden relative aspect-[4/3] md:aspect-auto ${
+                img.tall ? "md:row-span-2 md:min-h-[420px]" : "md:min-h-[200px]"
               }`}
-              style={{ aspectRatio: img.tall ? undefined : "4/3", minHeight: img.tall ? "420px" : "200px" }}
             >
               <Image
                 src={img.src}
-                alt="Surf session in Bali"
+                alt={img.alt}
                 fill
                 className={`object-cover ${img.pos}`}
                 sizes="(max-width: 768px) 50vw, 33vw"
@@ -565,31 +737,35 @@ export default function Home() {
             <p className="text-xs uppercase tracking-[0.25em] text-[#0A7075] font-medium mb-3">How We Coach</p>
             <h2 className="font-display text-5xl font-light text-[#1C2B2B]">Your Progression Path</h2>
             <p className="mt-4 text-[#2E4444] max-w-2xl mx-auto text-sm leading-relaxed">
-              It's normal to feel like you're "in between" levels — every surfer progresses at their own pace. These levels help determine how our coaching will guide you through your needs and support you with the technical improvements we'll focus on during your stay. With our comprehensive video analysis from both water and air perspectives, you'll have every angle covered. Whether you're a beginner, intermediate, or advanced surfer, our expert coaches are here to help you elevate your skills and fun.
+              It's normal to feel "in between" levels — every surfer progresses at their own pace. These levels help us tailor coaching to your needs and guide the technical improvements we'll focus on during your stay. With video analysis from both water and air perspectives, you'll have every angle covered.
             </p>
           </FadeSection>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               {
-                level: "1.0",
+                level: "I",
+                color: "#00AEEF",
                 title: "Beginner",
                 badge: "Start here",
                 points: ["Surf equipment & safety", "How to paddle", "Pop-up technique", "Rules of the line-up"],
               },
               {
-                level: "1.1",
+                level: "II",
+                color: "#F5821F",
                 title: "Getting Comfortable",
                 badge: null,
                 points: ["Comfortable in the line-up", "Turtle rolls through whitewater", "Standing on whitewater waves", "Balancing your body weight"],
               },
               {
-                level: "1.2",
+                level: "III",
+                color: "#00A650",
                 title: "Catching Unbroken Waves",
                 badge: null,
                 points: ["Positioning to catch waves solo", "Using head weight while paddling", "Right timing to paddle for a wave", "Dropping down the face without falling"],
               },
               {
-                level: "1.3",
+                level: "IV",
+                color: "#EC008C",
                 title: "Reading Waves",
                 badge: "Advanced",
                 points: ["Wave reading basics", "Anticipating wave direction", "Angling the take-off", "Trimming vs carving"],
@@ -601,9 +777,9 @@ export default function Home() {
                 style={{ transitionDelay: `${i * 0.1}s` }}
               >
                 <div className="flex items-center justify-between mb-4">
-                  <span className="font-display text-3xl font-semibold text-[#0A7075]">{l.level}</span>
+                  <span className="font-display text-3xl font-semibold" style={{ color: l.color }}>{l.level}</span>
                   {l.badge && (
-                    <span className="text-xs bg-[#0A7075]/10 text-[#0A7075] px-2.5 py-1 rounded-full font-medium">{l.badge}</span>
+                    <span className="text-xs px-2.5 py-1 rounded-full font-medium" style={{ color: l.color, background: `${l.color}18` }}>{l.badge}</span>
                   )}
                 </div>
                 <h3 className="font-display text-xl font-semibold text-[#1C2B2B] mb-4">{l.title}</h3>
@@ -649,7 +825,7 @@ export default function Home() {
               <FadeSection key={t.name} className="bg-white rounded-2xl p-7 shadow-sm">
                 <div className="flex gap-1 mb-4">
                   {Array(5).fill(null).map((_, i) => (
-                    <svg key={i} className="w-4 h-4 text-[#0A7075]" viewBox="0 0 24 24" fill="currentColor">
+                    <svg key={i} className="w-4 h-4 text-[#F5821F]" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                     </svg>
                   ))}
@@ -721,7 +897,7 @@ export default function Home() {
                 href="https://www.instagram.com/surf_with_t"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 bg-[#E040FB]/10 border border-[#E040FB]/20 rounded-xl hover:bg-[#E040FB]/15 transition-colors group"
+                className="flex items-center gap-4 p-4 bg-[#0A7075]/5 border border-[#0A7075]/20 rounded-xl hover:bg-[#0A7075]/10 transition-colors group"
               >
                 <div className="w-10 h-10 bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#515BD4] rounded-full flex items-center justify-center shrink-0">
                   <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white">
@@ -736,25 +912,25 @@ export default function Home() {
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </a>
-            </div>
 
-            <div className="mt-8 p-5 bg-[#FAFAF5] border border-[#E0E0D8] rounded-xl">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#1C2B2B] mb-3">Cancellation Policy</p>
-              <ul className="space-y-2">
-                {[
-                  { label: "14+ days before", value: "100% refund" },
-                  { label: "7–13 days before", value: "50% refund" },
-                  { label: "Less than 7 days", value: "Non-refundable" },
-                ].map((row) => (
-                  <li key={row.label} className="flex justify-between text-xs text-[#2E4444]">
-                    <span>{row.label}</span>
-                    <span className="font-medium text-[#1C2B2B]">{row.value}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="text-xs text-[#2E4444]/70 mt-3 leading-relaxed">
-                Full payment required at time of booking. Sessions may be rescheduled due to poor weather — we'll always offer a suitable alternative.
-              </p>
+              <a
+                href="mailto:surfwitht@gmail.com"
+                className="flex items-center gap-4 p-4 bg-[#0A7075]/5 border border-[#0A7075]/20 rounded-xl hover:bg-[#0A7075]/10 transition-colors group"
+              >
+                <div className="w-10 h-10 bg-[#0A7075] rounded-full flex items-center justify-center shrink-0">
+                  <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="white" strokeWidth="1.8">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <path d="M22 6l-10 7L2 6" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="font-medium text-[#1C2B2B] text-sm">surfwitht@gmail.com</p>
+                  <p className="text-xs text-[#2E4444]">Drop us a message anytime</p>
+                </div>
+                <svg className="ml-auto w-4 h-4 text-[#2E4444] group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
             </div>
 
             <div className="mt-8 rounded-2xl overflow-hidden border border-[#E0E0D8] shadow-sm">
@@ -806,10 +982,14 @@ export default function Home() {
               <div>
                 <label className="block text-xs uppercase tracking-widest text-[#2E4444] mb-2">Lesson Type</label>
                 <select className="w-full px-4 py-3 rounded-xl border border-[#E0E0D8] bg-[#FAFAF5] text-sm focus:outline-none focus:ring-2 focus:ring-[#0A7075]/30 focus:border-[#0A7075] transition-colors text-[#2E4444]">
-                  <option value="">Select a lesson...</option>
-                  <option>Beginner Lesson (2hrs)</option>
-                  <option>Group Surf Day (3hrs)</option>
-                  <option>Private Package (5 sessions)</option>
+                  <option value="">Select a package...</option>
+                  <option>Group Lesson</option>
+                  <option>Semi-Private</option>
+                  <option>Private Lesson</option>
+                  <option>Board Rental</option>
+                  <option>3-Day Private</option>
+                  <option>3-Day Semi-Private</option>
+                  <option>3-Day Group</option>
                   <option>Not sure — help me choose</option>
                 </select>
               </div>
@@ -835,6 +1015,25 @@ export default function Home() {
                 Send Message
               </button>
             </form>
+
+            <FadeSection className="mt-6 p-5 bg-[#FAFAF5] border border-[#E0E0D8] rounded-xl">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#1C2B2B] mb-3">Cancellation Policy</p>
+              <ul className="space-y-2">
+                {[
+                  { label: "14+ days before", value: "100% refund" },
+                  { label: "7–13 days before", value: "50% refund" },
+                  { label: "Less than 7 days", value: "Non-refundable" },
+                ].map((row) => (
+                  <li key={row.label} className="flex justify-between text-xs text-[#2E4444]">
+                    <span>{row.label}</span>
+                    <span className="font-medium text-[#1C2B2B]">{row.value}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-xs text-[#2E4444]/70 mt-3 leading-relaxed">
+                Full payment required at time of booking. Sessions may be rescheduled due to poor weather — we'll always offer a suitable alternative.
+              </p>
+            </FadeSection>
           </FadeSection>
         </div>
       </section>
@@ -842,8 +1041,14 @@ export default function Home() {
       {/* ─── FOOTER ──────────────────────────────────────────── */}
       <footer className="bg-[#1C2B2B] text-white py-12 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="text-center md:text-left">
-            <p className="font-display text-2xl font-semibold tracking-wide mb-1">SURF WITH TEE</p>
+          <div className="flex flex-col items-center md:items-start gap-2">
+            <Image
+              src="/images/logo-sm.png"
+              alt="Surf With Tee"
+              width={96}
+              height={96}
+              className="brightness-0 invert opacity-90"
+            />
             <p className="text-sm text-[#9BBEBE]">Jl. Pantai Balangan 315, Jimbaran · Uluwatu, Bali</p>
           </div>
           <div className="flex gap-8 text-sm text-[#9BBEBE]">
@@ -855,6 +1060,14 @@ export default function Home() {
           </div>
           <p className="text-xs text-[#9BBEBE]/60">
             © {new Date().getFullYear()} Surf With Tee. All rights reserved.
+          </p>
+        </div>
+        <div className="max-w-7xl mx-auto mt-8 pt-6 border-t border-white/10 flex justify-center">
+          <p className="text-xs text-[#9BBEBE]/40">
+            Made with ❤️ in Bali ·{" "}
+            <a href="https://9line.dev" target="_blank" rel="noopener noreferrer" className="hover:text-[#9BBEBE]/70 transition-colors underline underline-offset-2">
+              9line.dev
+            </a>
           </p>
         </div>
       </footer>

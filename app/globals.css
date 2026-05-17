@@ -9,6 +9,10 @@
   --foam: #FAFAF5;
   --dusk: #1C2B2B;
   --dusk-light: #2E4444;
+  --palm-blue: #00AEEF;
+  --palm-orange: #F5821F;
+  --palm-green: #00A650;
+  --palm-pink: #EC008C;
 }
 
 @theme inline {
@@ -18,6 +22,10 @@
   --color-sand: var(--sand);
   --color-foam: var(--foam);
   --color-dusk: var(--dusk);
+  --color-palm-blue: var(--palm-blue);
+  --color-palm-orange: var(--palm-orange);
+  --color-palm-green: var(--palm-green);
+  --color-palm-pink: var(--palm-pink);
 }
 
 html {
@@ -83,4 +91,9 @@ body {
 
 .gallery-item:hover img {
   transform: scale(1.04);
+}
+
+@keyframes scroll-hint {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(6px); opacity: 0.8; }
 }
