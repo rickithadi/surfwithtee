@@ -89,13 +89,12 @@ export function NavClient() {
       }`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-2 flex items-center justify-between">
           <a href="#" className="flex items-center flex-shrink-0">
-            <div className="w-[64px] h-[64px] rounded-full bg-[#F4E2C0] flex items-center justify-center overflow-hidden">
+            <div className="relative w-[64px] h-[64px] rounded-full bg-[#F4E2C0] overflow-hidden">
               <Image
                 src="/images/logo-transparent.png"
                 alt="Surf With Tee"
-                width={60}
-                height={60}
-                className="object-contain"
+                fill
+                className="object-contain p-[2px]"
               />
             </div>
           </a>
