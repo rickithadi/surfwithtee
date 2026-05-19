@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://surfwithtee.vercel.app/sitemap.xml",
+    sitemap: "https://surfwithtee.com/sitemap.xml",
   };
 }

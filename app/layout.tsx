@@ -16,7 +16,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://surfwithtee.vercel.app"),
+  metadataBase: new URL("https://surfwithtee.com"),
   title: {
     default: "Surf With Tee | Surf Lessons in Uluwatu, Bali",
     template: "%s | Surf With Tee",
@@ -35,12 +35,12 @@ export const metadata: Metadata = {
     "group surf lesson Bali",
     "surf coach Uluwatu",
   ],
-  authors: [{ name: "Tee", url: "https://surfwithtee.vercel.app" }],
+  authors: [{ name: "Tee", url: "https://surfwithtee.com" }],
   creator: "Surf With Tee",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://surfwithtee.vercel.app",
+    url: "https://surfwithtee.com",
     siteName: "Surf With Tee",
     title: "Surf With Tee | Surf Lessons in Uluwatu, Bali",
     description:
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://surfwithtee.vercel.app",
+    canonical: "https://surfwithtee.com",
   },
 };
 
