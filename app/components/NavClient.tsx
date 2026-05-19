@@ -94,7 +94,7 @@ export function NavClient() {
                 src="/images/logo-transparent.png"
                 alt="Surf With Tee"
                 fill
-                className="object-contain p-[2px]"
+                className="object-contain"
               />
             </div>
           </a>
