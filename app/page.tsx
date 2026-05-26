@@ -48,7 +48,7 @@ const navLinks = [
 const faqItems = [
   {
     q: "How much do surf lessons in Bali cost?",
-    a: "Single sessions start at IDR 400,000 per person for a group lesson (approx. USD 25), IDR 500,000 for semi-private, and IDR 700,000 for a 1-on-1 private lesson. 3-day camps start from IDR 1,900,000. All prices include surfboard, rashguard, zinc, locker, and refreshments.",
+    a: "Single sessions start at IDR 400,000 per person for a group lesson (approx. USD 25), IDR 500,000 for semi-private, and IDR 700,000 for a 1-on-1 private lesson. 3-day camps start from IDR 1,900,000. All prices include surfboard, rashguard, zinc, and locker.",
   },
   {
     q: "Do I need experience to book a lesson?",
@@ -344,7 +344,7 @@ export default function Home() {
               { num: "01", color: "#00AEEF", title: "Perfect for Any Level", body: "Whether it's your first time on a surfboard or you're looking to improve your surfing, our certified coaches are here to guide you. Enjoy daily surf sessions in the Indian Ocean, tailored to your skill level." },
               { num: "02", color: "#F5821F", title: "Small Groups", body: "With a maximum of 3 surfers per group lesson — and 1-on-1 for private coaching — you'll receive focused attention that drives real progress every session." },
               { num: "03", color: "#00A650", title: "Improve Your Surf", body: "For surfers looking to elevate their abilities, we offer daily sessions with our expert local coach, supported by detailed video analysis and line-up coaching. Our surf-specific fitness training is designed to improve your strength and precision." },
-              { num: "04", color: "#EC008C", title: "All-Inclusive", body: "Surfboard, rashguard, zinc, locker, and refreshments included. Taufik knows every break around Uluwatu and will always put you at the right wave for your level on the day." },
+              { num: "04", color: "#EC008C", title: "All-Inclusive", body: "Surfboard, rashguard, zinc, and locker included. Taufik knows every break around Uluwatu and will always put you at the right wave for your level on the day." },
             ].map((item, i) => (
               <FadeSection key={item.title} className="text-left" style={{ transitionDelay: `${i * 0.1}s` }}>
                 <p className="font-display text-7xl font-light leading-none mb-5 select-none" style={{ color: item.color }}>{item.num}</p>
