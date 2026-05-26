@@ -8,7 +8,7 @@ const jsonLd = {
   "@type": "SportsActivityLocation",
   name: "Surf With Tee",
   description:
-    "Surf With Tee is a surf school in Uluwatu, Bali. Private and group surf lessons for all levels with local instructor Tee — beginner to advanced, video analysis included.",
+    "Surf With Tee is a surf school in Uluwatu, Bali. Private and group surf lessons for all levels with local instructor Taufik — beginner to advanced, video analysis included.",
   url: "https://surfwithtee.com",
   telephone: "+6281353282623",
   email: "surfwitht@gmail.com",
@@ -52,23 +52,23 @@ const faqItems = [
   },
   {
     q: "Do I need experience to book a lesson?",
-    a: "Not at all. Surf With Tee welcomes complete beginners through to advanced surfers. Tee tailors every session to your current level — if you've never stood on a board, that's exactly where we start.",
+    a: "Not at all. Surf With Tee welcomes complete beginners through to advanced surfers. Taufik tailors every session to your current level — if you've never stood on a board, that's exactly where we start.",
   },
   {
     q: "What's included in the lesson price?",
-    a: "All sessions include your surfboard, rashguard, zinc/sunscreen, a locker, and coffee, tea, and water. A professional photo and video add-on is available for an additional IDR 300,000.",
+    a: "All sessions include your surfboard, rashguard, zinc/sunscreen, and a locker. A professional photo and video add-on is available for an additional IDR 300,000.",
   },
   {
     q: "Where exactly are sessions held?",
-    a: "Sessions run at Balangan Beach, one of Uluwatu's most consistent breaks, located at Jl. Pantai Balangan 315, Jimbaran, South Bali. Tee knows every wave in the area and selects the best spot for your level on the day.",
+    a: "Sessions run at Balangan Beach, one of Uluwatu's most consistent breaks, located at Jl. Pantai Balangan 315, Jimbaran, South Bali. Taufik knows every wave in the area and selects the best spot for your level on the day.",
   },
   {
     q: "What's the best time of year to surf in Uluwatu?",
-    a: "Uluwatu and Balangan have waves year-round. The dry season (April–October) brings the most consistent swells with offshore winds. The wet season (November–March) still offers great surf, especially for beginners on smaller days. Tee monitors conditions daily and will always put you in the right spot.",
+    a: "Uluwatu and Balangan have waves year-round. The dry season (April–October) brings the most consistent swells with offshore winds. The wet season (November–March) still offers great surf, especially for beginners on smaller days. Taufik monitors conditions daily and will always put you in the right spot.",
   },
   {
     q: "Are lessons suitable for children?",
-    a: "Yes. Tee regularly teaches children and families. The calm, shallow sections of Balangan Beach are ideal for young beginners. Just mention the ages of your group when you book and Tee will plan accordingly.",
+    a: "Yes. Taufik regularly teaches children and families. The calm, shallow sections of Balangan Beach are ideal for young beginners. Just mention the ages of your group when you book and Taufik will plan accordingly.",
   },
 ];
 
@@ -100,7 +100,7 @@ export default function Home() {
             <span className="italic font-medium">of Bali</span>
           </h1>
           <p className="text-lg md:text-xl opacity-85 max-w-md mx-auto mb-10 leading-relaxed font-light">
-            Improve your surfing at one of the world&apos;s best breaks. Expert local coaches, max 2 students per coach, all equipment included.
+            Improve your surfing at one of the world&apos;s best breaks. Expert local coaches, all equipment included.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="#lessons" className="px-8 py-3.5 bg-white text-[#1C2B2B] rounded-full font-medium text-sm tracking-wide hover:bg-[#F4E2C0] transition-colors">See Lessons</a>
@@ -118,7 +118,7 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-16 lg:gap-24 items-center">
           <FadeSection className="relative">
             <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
-              <Image src="/images/tee-instructor.jpg" alt="Tee, local Bali surf instructor at Uluwatu" fill className="object-cover object-center" sizes="(max-width: 768px) 100vw, 50vw" />
+              <Image src="/images/tee-instructor.jpg" alt="Taufik, local Bali surf instructor at Uluwatu" fill className="object-cover object-center" sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
             <div className="absolute -bottom-5 -right-5 bg-[#F4E2C0] rounded-2xl p-6 shadow-lg max-w-[180px]">
               <p className="font-display text-4xl font-semibold text-[#0A7075] leading-none">10+</p>
@@ -127,10 +127,10 @@ export default function Home() {
           </FadeSection>
           <FadeSection>
             <p className="text-xs uppercase tracking-[0.25em] text-[#0A7075] font-medium mb-4">Meet Your Instructor</p>
-            <h2 className="font-display text-5xl md:text-6xl font-light leading-tight mb-6">Hi, I&apos;m Tee</h2>
+            <h2 className="font-display text-5xl md:text-6xl font-light leading-tight mb-6">Hi, I&apos;m Taufik</h2>
             <div className="w-12 h-0.5 bg-[#0A7075] mb-8" />
             <p className="text-base leading-relaxed text-[#2E4444] mb-5">
-              Born and raised in Bali, I&apos;ve spent my whole life surfing the breaks of Uluwatu. Surf With Tee is a surf school rooted in Uluwatu, Bali — built on good vibes, personal attention, and a genuine love for sharing the ocean with people from all over the world.
+              Born in Palabuhanratu, West Java, I moved to Bali in 2015 and have spent every year since surfing the breaks of Uluwatu. Surf With Tee is a surf school rooted in Uluwatu, Bali — built on good vibes, personal attention, and a genuine love for sharing the ocean with people from all over the world.
             </p>
             <p className="text-base leading-relaxed text-[#2E4444] mb-8">
               Whether it&apos;s your very first wave or you&apos;re looking to level up your technique, I tailor every session to you. Our instructors are warm, kind and always smiling — we&apos;ll always let you know upfront who your teacher will be, and can&apos;t wait to meet you in the water.
@@ -196,21 +196,21 @@ export default function Home() {
               title: "Group Lesson", ratio: "1 Instructor · 3 Students", duration: "2 hours", price: "IDR 400.000 / person",
               image: "/images/group-lesson.jpg", imgPos: "object-center",
               alt: "Group surf lesson with three beginners at Balangan Beach, Bali",
-              features: ["Fun group session with 1:3 instructor-to-student ratio","Surfboard, wetsuit, sunscreen & zinc included","Coffee, tea & water provided","Ask about adding video review to your session"],
+              features: ["Fun group session with 1:3 instructor-to-student ratio","Surfboard, wetsuit, sunscreen & zinc included","Ask about adding video review to your session"],
               highlight: false, photoAddonPrice: null,
             },
             {
               title: "Semi-Private", ratio: "1 Instructor · 2 Students", duration: "2 hours", price: "IDR 500.000 / person",
               image: "/images/lesson-briefing-2.jpg", imgPos: "object-[center_35%]",
               alt: "Semi-private surf lesson for two students on the sand at Uluwatu, Bali",
-              features: ["Ideal for friends or couples","Full surf gear included","Coffee, tea & water provided","Videographer available to capture your session"],
+              features: ["Ideal for friends or couples","Full surf gear included","Videographer available to capture your session"],
               highlight: false, photoAddonPrice: null,
             },
             {
               title: "Private Lesson", ratio: "1 Instructor · 1 Student", duration: "2 hours", price: "IDR 700.000 / person",
               image: "/images/instructor-student.jpg", imgPos: "object-[center_25%]",
-              alt: "One-on-one private surf coaching session with Tee at Balangan Beach",
-              features: ["Personalised 1-on-1 coaching","All equipment included","Coffee, tea & water provided","Capture your session with our videographer"],
+              alt: "One-on-one private surf coaching session with Taufik at Balangan Beach",
+              features: ["Personalised 1-on-1 coaching","All equipment included","Capture your session with our videographer"],
               highlight: true, photoAddonPrice: "+ IDR 300.000",
             },
           ] as { title: string; ratio: string; duration: string; price: string; image: string; imgPos: string; alt: string; features: string[]; highlight: boolean; photoAddonPrice: string | null }[]).map((lesson, i) => (
@@ -328,7 +328,7 @@ export default function Home() {
           ))}
         </div>
         <FadeSection className="mt-6">
-          <p className="text-xs text-[#F5821F] text-center font-medium">Pickup and boat fees are not included — ask Tee for details when booking.</p>
+          <p className="text-xs text-[#F5821F] text-center font-medium">Pickup and boat fees are not included — ask Taufik for details when booking.</p>
         </FadeSection>
       </section>
 
@@ -344,7 +344,7 @@ export default function Home() {
               { num: "01", color: "#00AEEF", title: "Perfect for Any Level", body: "Whether it's your first time on a surfboard or you're looking to improve your surfing, our certified coaches are here to guide you. Enjoy daily surf sessions in the Indian Ocean, tailored to your skill level." },
               { num: "02", color: "#F5821F", title: "Small Groups", body: "With a maximum of 3 surfers per group lesson — and 1-on-1 for private coaching — you'll receive focused attention that drives real progress every session." },
               { num: "03", color: "#00A650", title: "Improve Your Surf", body: "For surfers looking to elevate their abilities, we offer daily sessions with our expert local coach, supported by detailed video analysis and line-up coaching. Our surf-specific fitness training is designed to improve your strength and precision." },
-              { num: "04", color: "#EC008C", title: "All-Inclusive", body: "Surfboard, rashguard, zinc, locker, and refreshments included. Tee knows every break around Uluwatu and will always put you at the right wave for your level on the day." },
+              { num: "04", color: "#EC008C", title: "All-Inclusive", body: "Surfboard, rashguard, zinc, locker, and refreshments included. Taufik knows every break around Uluwatu and will always put you at the right wave for your level on the day." },
             ].map((item, i) => (
               <FadeSection key={item.title} className="text-left" style={{ transitionDelay: `${i * 0.1}s` }}>
                 <p className="font-display text-7xl font-light leading-none mb-5 select-none" style={{ color: item.color }}>{item.num}</p>
@@ -365,7 +365,7 @@ export default function Home() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
           {[
             { src: "/images/hero-surf.jpg", pos: "object-center", tall: true, alt: "Surfer riding a wave at Uluwatu, Bali" },
-            { src: "/images/lesson-briefing-1.jpg", pos: "object-[center_30%]", tall: false, alt: "Pre-session beach briefing with Tee" },
+            { src: "/images/lesson-briefing-1.jpg", pos: "object-[center_30%]", tall: false, alt: "Pre-session beach briefing with Taufik" },
             { src: "/images/surf-action-1.jpg", pos: "object-center", tall: false, alt: "Student catching their first wave at Balangan Beach" },
             { src: "/images/lesson-briefing-2.jpg", pos: "object-[center_35%]", tall: false, alt: "Coach reviewing surf technique on the sand at Uluwatu" },
             { src: "/images/surf-action-2.jpg", pos: "object-center", tall: false, alt: "Beginner standing up on a wave at Balangan Beach, Bali" },
@@ -427,7 +427,7 @@ export default function Home() {
             <FadeSection className="md:col-span-3">
               <p className="font-display text-[8rem] leading-none text-[#0A7075]/15 select-none -mb-8 font-light">&ldquo;</p>
               <blockquote className="font-display text-2xl md:text-3xl font-light italic text-[#1C2B2B] leading-relaxed mb-8">
-                I was terrified of the ocean before this. After two lessons with Tee I was standing up and totally hooked. I&apos;ve been back every trip since.
+                I was terrified of the ocean before this. After two lessons with Taufik I was standing up and totally hooked. I&apos;ve been back every trip since.
               </blockquote>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-0.5 bg-[#0A7075]" />
@@ -439,11 +439,11 @@ export default function Home() {
             </FadeSection>
             <div className="md:col-span-2 flex flex-col gap-10 md:pt-16">
               <FadeSection className="pl-6 border-l-2 border-[#0A7075]/25">
-                <p className="text-sm leading-relaxed text-[#2E4444] italic mb-4">&ldquo;Tee is the best surf instructor I&apos;ve ever had. He&apos;s patient, funny, and genuinely excited for you when you catch your first wave.&rdquo;</p>
+                <p className="text-sm leading-relaxed text-[#2E4444] italic mb-4">&ldquo;Taufik is the best surf instructor I&apos;ve ever had. He&apos;s patient, funny, and genuinely excited for you when you catch your first wave.&rdquo;</p>
                 <p className="font-semibold text-[#1C2B2B] text-xs">Sophie L. <span className="text-[#0A7075] font-normal">· Netherlands · 2025</span></p>
               </FadeSection>
               <FadeSection className="pl-6 border-l-2 border-[#0A7075]/25">
-                <p className="text-sm leading-relaxed text-[#2E4444] italic mb-4">&ldquo;We did a group session with 4 friends and it was the highlight of our whole Bali trip. Tee makes you feel at ease in the water immediately.&rdquo;</p>
+                <p className="text-sm leading-relaxed text-[#2E4444] italic mb-4">&ldquo;We did a group session with 4 friends and it was the highlight of our whole Bali trip. Taufik makes you feel at ease in the water immediately.&rdquo;</p>
                 <p className="font-semibold text-[#1C2B2B] text-xs">Camille B. <span className="text-[#0A7075] font-normal">· France · 2025</span></p>
               </FadeSection>
             </div>
@@ -490,7 +490,7 @@ export default function Home() {
               <svg className="w-3.5 h-3.5 text-[#0A7075] shrink-0 mt-0.5 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" /></svg>
             </a>
             <div className="space-y-5">
-              <a href="https://wa.me/6281353282623?text=Hi%20Tee!%20I'd%20love%20to%20book%20a%20surf%20lesson." target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 bg-[#25D366]/10 border border-[#25D366]/30 rounded-xl hover:bg-[#25D366]/20 transition-colors group">
+              <a href="https://wa.me/6281353282623?text=Hi%20Taufik!%20I'd%20love%20to%20book%20a%20surf%20lesson." target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 bg-[#25D366]/10 border border-[#25D366]/30 rounded-xl hover:bg-[#25D366]/20 transition-colors group">
                 <div className="w-10 h-10 bg-[#25D366] rounded-full flex items-center justify-center shrink-0">
                   <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
                 </div>
@@ -538,7 +538,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <p className="text-xs text-[#2E4444]/70 leading-relaxed">Full payment required at time of booking. Sessions may be rescheduled due to poor weather — we&apos;ll always offer a suitable alternative.</p>
-                <p className="text-xs text-[#F5821F] mt-2 font-medium">Note: pickup and boat fees are not included — ask Tee for details when booking.</p>
+                <p className="text-xs text-[#F5821F] mt-2 font-medium">Note: pickup and boat fees are not included — ask Taufik for details when booking.</p>
               </div>
             </div>
           </FadeSection>
