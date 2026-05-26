@@ -175,7 +175,7 @@ export default function Home() {
             <p className="mt-4 text-[#9BBEBE] max-w-md mx-auto text-sm leading-relaxed">Real lessons, real people, real waves — straight from the beach at Balangan.</p>
           </FadeSection>
           <FadeSection className="rounded-2xl overflow-hidden shadow-2xl">
-            <video src="/images/lesson-video.mp4" autoPlay muted loop playsInline className="w-full max-h-[70vh] object-cover" />
+            <video src="/images/lesson-video.mp4" autoPlay muted loop playsInline className="w-full max-h-[70vh] object-cover object-[center_55%]" />
           </FadeSection>
         </div>
       </section>
